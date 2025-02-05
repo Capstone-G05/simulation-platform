@@ -2,7 +2,13 @@
 
 > Unifying repo for depolying all Raspberry Pi services.
 
-## Usage
+## Setup
+```shell
+git submodule init
+git submodule update
+```
+
+## Deploy
 
 ```shell
 docker compose up -d  # start services

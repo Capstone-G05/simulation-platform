@@ -5,4 +5,4 @@ WORKDIR /app
 COPY api_server/requirements.txt .
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["uvicorn", "main:app"]
+ENTRYPOINT ["uvicorn", "main:app", "--host", "localhost", "--port", "8000", "--reload"]
