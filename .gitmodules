@@ -1,0 +1,12 @@
+[submodule "api_server"]
+	path = api_server
+	url = git@github.com:Capstone-G05/api_server.git
+[submodule "FrontEndSimulation"]
+	path = FrontEndSimulation
+	url = git@github.com:Capstone-G05/FrontEndSimulation.git
+[submodule "input-board"]
+	path = input-board
+	url = git@github.com:Capstone-G05/input-board.git
+[submodule "Backend-Simulation"]
+	path = Backend-Simulation
+	url = git@github.com:Capstone-G05/Backend-Simulation.git
