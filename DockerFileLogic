@@ -1,0 +1,7 @@
+FROM gcc
+
+WORKDIR /app
+
+RUN make clean && make
+
+ENTRYPOINT ["./main"]

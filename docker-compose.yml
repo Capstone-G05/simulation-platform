@@ -1,0 +1,68 @@
+services:
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    network_mode: host
+    restart: always
+
+  logic:
+    build:
+      context: .
+      dockerfile: DockerFileLogic
+    container_name: logic
+    depends_on:
+      - redis
+    network_mode: host
+    environment:
+      REDIS_HOST: "localhost"
+      REDIS_PORT: 6379
+    volumes:
+      - "./Backend-Simulation:/app"
+    restart: always
+
+  server:
+    build:
+      context: .
+      dockerfile: DockerFileServer
+    container_name: server
+    depends_on:
+      - redis
+    ports:
+      - "8000:8000"
+    network_mode: host
+    environment:
+      REDIS_HOST: "localhost"
+      REDIS_PORT: 6379
+    volumes:
+      - "./api_server/app:/app"
+    restart: always
+
+  input:
+    build:
+      context: .
+      dockerfile: DockerFileInput
+    container_name: input
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    network_mode: host
+    volumes:
+      - "./input-board:/app"
+    restart: always
+
+  simulation:
+    build:
+      context: .
+      dockerfile: DockerFileSimulation
+    container_name: simulation
+    depends_on:
+      - server
+    ports:
+      - "5173:5173"
+    network_mode: host
+    volumes:
+      - "./FrontEndSimulation:/app"
+    restart: always

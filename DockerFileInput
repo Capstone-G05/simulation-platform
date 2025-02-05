@@ -1,0 +1,8 @@
+FROM node
+
+WORKDIR /app
+
+COPY input-board/package*.json .
+RUN npm install
+
+ENTRYPOINT ["npm", "run", "start"]

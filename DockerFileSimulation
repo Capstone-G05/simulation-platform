@@ -1,0 +1,8 @@
+FROM node
+
+WORKDIR /app
+
+COPY FrontEndSimulation/package*.json .
+RUN npm install
+
+ENTRYPOINT ["npm", "run", "dev"]
