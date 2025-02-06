@@ -28,6 +28,8 @@ services:
     ports:
       - "8000:8000"
     environment:
+      API_HOST: "0.0.0.0"
+      API_PORT: "8000"
       REDIS_HOST: "redis"
       REDIS_PORT: 6379
       DATABASE: "database.db"
