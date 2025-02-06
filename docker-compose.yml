@@ -7,20 +7,20 @@ services:
     network_mode: host
     restart: always
 
-#  logic:
-#    build:
-#      context: .
-#      dockerfile: DockerFileLogic
-#    container_name: logic
-#    depends_on:
-#      - redis
-#    network_mode: host
-#    environment:
-#      REDIS_HOST: "localhost"
-#      REDIS_PORT: 6379
-#    volumes:
-#      - "./Backend-Simulation:/app"
-#    restart: always
+  logic:
+    build:
+      context: .
+      dockerfile: DockerFileLogic
+    container_name: logic
+    depends_on:
+      - redis
+    network_mode: host
+    environment:
+      REDIS_HOST: "localhost"
+      REDIS_PORT: 6379
+    volumes:
+      - "./Backend-Simulation:/app"
+    restart: always
 
   server:
     build:
@@ -37,6 +37,7 @@ services:
       API_PORT: 8000
       REDIS_HOST: "localhost"
       REDIS_PORT: 6379
+      DATABASE: "database.db"
     volumes:
       - "./api_server/app:/app"
     restart: always
@@ -54,7 +55,7 @@ services:
 #    volumes:
 #      - "./input-board:/app"
 #    restart: always
-#
+
 #  simulation:
 #    build:
 #      context: .
@@ -63,7 +64,7 @@ services:
 #    depends_on:
 #      - server
 #    ports:
-#      - "5173:5173"
+#      - "6000:6000"
 #    network_mode: host
 #    volumes:
 #      - "./FrontEndSimulation:/app"
