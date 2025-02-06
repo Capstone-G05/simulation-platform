@@ -1,8 +1,5 @@
-FROM node
+FROM nginx:stable-alpine
 
-WORKDIR /app
+COPY input-board/build /usr/share/nginx/html
 
-COPY input-board/package*.json .
-RUN npm install
-
-ENTRYPOINT ["npm", "run", "start"]
+EXPOSE 80

@@ -29,8 +29,6 @@ services:
     container_name: server
     depends_on:
       - redis
-    ports:
-      - "8000:8000"
     network_mode: host
     environment:
       API_HOST: "localhost"
@@ -42,30 +40,28 @@ services:
       - "./api_server/app:/app"
     restart: always
 
-#  input:
-#    build:
-#      context: .
-#      dockerfile: DockerFileInput
-#    container_name: input
-#    depends_on:
-#      - server
-#    ports:
-#      - "3000:3000"
-#    network_mode: host
-#    volumes:
-#      - "./input-board:/app"
-#    restart: always
+  input:
+    build:
+      context: .
+      dockerfile: DockerFileInput
+    container_name: input
+    depends_on:
+      - server
+    ports:
+      - "7000:80"
+    volumes:
+      - "./input-board/build:/usr/share/nginx/html"
+    restart: always
 
-#  simulation:
-#    build:
-#      context: .
-#      dockerfile: DockerFileSimulation
-#    container_name: simulation
-#    depends_on:
-#      - server
-#    ports:
-#      - "6000:6000"
-#    network_mode: host
-#    volumes:
-#      - "./FrontEndSimulation:/app"
-#    restart: always
+  simulation:
+    build:
+      context: .
+      dockerfile: DockerFileSimulation
+    container_name: simulation
+    depends_on:
+      - server
+    ports:
+      - "5000:80"
+    volumes:
+      - "./FrontEndSimulation/dist:/usr/share/nginx/html"
+    restart: always

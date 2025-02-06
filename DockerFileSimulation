@@ -1,9 +1,5 @@
-FROM nginx
+FROM nginx:stable-alpine
 
-WORKDIR /usr/share/nginx/simulation
+COPY FrontEndSimulation/dist /usr/share/nginx/html
 
-COPY FrontEndSimulation/src/dist /usr/share/nginx/simulation
-
-COPY nginx-simulation.conf /etc/nginx/conf.d/default.conf
-
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 80

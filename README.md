@@ -11,7 +11,7 @@ git submodule update
 ## Deploy
 
 ```shell
-docker compose up -d  # start services
-docker compose down   # stop services
+docker compose up --build -d # start services
+docker compose down          # stop services
 ```
 

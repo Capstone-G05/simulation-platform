@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y build-essential make g++ libc6-dev libhiredis-dev
 
@@ -7,5 +7,5 @@ WORKDIR /app
 COPY Backend-Simulation .
 RUN make
 
-#ENTRYPOINT ["./simulation"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["./simulation"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
