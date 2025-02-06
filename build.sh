@@ -3,7 +3,7 @@
 set -e # exit on errors
 
 # Define the list of directories to build
-directories=("FrontendSimulation" "input-board")
+directories=("FrontEndSimulation" "input-board")
 
 # Get the script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
