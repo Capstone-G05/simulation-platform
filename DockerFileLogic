@@ -8,4 +8,3 @@ COPY Backend-Simulation .
 RUN make
 
 ENTRYPOINT ["./simulation"]
-#ENTRYPOINT ["tail", "-f", "/dev/null"]
