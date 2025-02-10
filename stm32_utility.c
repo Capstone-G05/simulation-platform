@@ -80,7 +80,7 @@ typedef enum {
 } CANIndex;
 
 typedef enum {
-  INDEX_HB = 0x00,     // STM32 Heartbeat
+  INDEX_STATUS = 0x00, // STM32 Status
 } MISCIndex;
 
 typedef struct {
@@ -92,30 +92,31 @@ typedef struct {
 } MessageMapping;
 
 const MessageMapping message_table[] = {
-  { "APA", WRITE, TYPE_DAC,  INDEX_VOUT2, "Auger Pivot Angle"    },
-  { "APU", READ,  TYPE_PWM,  INDEX_PB0,   "Auger Pivot Up"       },
-  { "APD", READ,  TYPE_PWM,  INDEX_PA4,   "Auger Pivot Down"     },
-  { "AFA", WRITE, TYPE_DAC,  INDEX_VOUT5, "Auger Fold Angle"     },
-  { "AFU", READ,  TYPE_PWM,  INDEX_PB10,  "Auger Unfold"         },
-  { "AFF", READ,  TYPE_PWM,  INDEX_PB2,   "Auger Fold"           },
-  { "STU", READ,  TYPE_PWM,  INDEX_PA1,   "Spout Tilt Up"        },
-  { "STD", READ,  TYPE_PWM,  INDEX_PA3,   "Spout Tilt Down"      },
-  { "SRA", WRITE, TYPE_DAC,  INDEX_VOUT0, "Spout Rotation Angle" },
-  { "SRC", READ,  TYPE_PWM,  INDEX_PA6,   "Spout Rotate CW"      },
-  { "SRW", READ,  TYPE_PWM,  INDEX_PA7,   "Spout Rotate CCW"     },
-  { "GTA", WRITE, TYPE_DAC,  INDEX_VOUT4, "Gate Angle"           },
-  { "GTO", READ,  TYPE_PWM,  INDEX_PA5,   "Gate Open"            },
-  { "GTC", READ,  TYPE_PWM,  INDEX_PB1,   "Gate Close"           },
-  { "PTO", WRITE, TYPE_PWM,  INDEX_PB15,  "PTO Speed"            },
-  { "WFL", WRITE, TYPE_CAN,  INDEX_LDC1,  "Weight Front Left"    },
-  { "WFR", WRITE, TYPE_CAN,  INDEX_LDC2,  "Weight Front Right"   },
-  { "WRL", WRITE, TYPE_CAN,  INDEX_LDC3,  "Weight Rear Left"     },
-  { "WRR", WRITE, TYPE_CAN,  INDEX_LDC4,  "Weight Rear Right"    },
-  { "WHH", WRITE, TYPE_CAN,  INDEX_LDC5,  "Weight Hitch"         },
-  { "TDF", READ,  TYPE_PWM,  INDEX_PA0,   "Tandem Float"         },
-  { "TDC", READ,  TYPE_PWM,  INDEX_PA0,   "Tandem Cutoff"        },
-  { "WSD", WRITE, TYPE_PWM,  INDEX_PA8,   "Wheel Speed"          },
-  { "LED", WRITE, TYPE_GPIO, INDEX_PB5,   "User Controlled LED"  },
+  { "APA", WRITE, TYPE_DAC,  INDEX_VOUT2,  "Auger Pivot Angle"    },
+  { "APU", READ,  TYPE_PWM,  INDEX_PB0,    "Auger Pivot Up"       },
+  { "APD", READ,  TYPE_PWM,  INDEX_PA4,    "Auger Pivot Down"     },
+  { "AFA", WRITE, TYPE_DAC,  INDEX_VOUT5,  "Auger Fold Angle"     },
+  { "AFU", READ,  TYPE_PWM,  INDEX_PB10,   "Auger Unfold"         },
+  { "AFF", READ,  TYPE_PWM,  INDEX_PB2,    "Auger Fold"           },
+  { "STU", READ,  TYPE_PWM,  INDEX_PA1,    "Spout Tilt Up"        },
+  { "STD", READ,  TYPE_PWM,  INDEX_PA3,    "Spout Tilt Down"      },
+  { "SRA", WRITE, TYPE_DAC,  INDEX_VOUT0,  "Spout Rotation Angle" },
+  { "SRC", READ,  TYPE_PWM,  INDEX_PA6,    "Spout Rotate CW"      },
+  { "SRW", READ,  TYPE_PWM,  INDEX_PA7,    "Spout Rotate CCW"     },
+  { "GTA", WRITE, TYPE_DAC,  INDEX_VOUT4,  "Gate Angle"           },
+  { "GTO", READ,  TYPE_PWM,  INDEX_PA5,    "Gate Open"            },
+  { "GTC", READ,  TYPE_PWM,  INDEX_PB1,    "Gate Close"           },
+  { "PTO", WRITE, TYPE_PWM,  INDEX_PB15,   "PTO Speed"            },
+  { "WFL", WRITE, TYPE_CAN,  INDEX_LDC1,   "Weight Front Left"    },
+  { "WFR", WRITE, TYPE_CAN,  INDEX_LDC2,   "Weight Front Right"   },
+  { "WRL", WRITE, TYPE_CAN,  INDEX_LDC3,   "Weight Rear Left"     },
+  { "WRR", WRITE, TYPE_CAN,  INDEX_LDC4,   "Weight Rear Right"    },
+  { "WHH", WRITE, TYPE_CAN,  INDEX_LDC5,   "Weight Hitch"         },
+  { "TDF", READ,  TYPE_PWM,  INDEX_PA0,    "Tandem Float"         },
+  { "TDC", READ,  TYPE_PWM,  INDEX_PA0,    "Tandem Cutoff"        },
+  { "WSD", WRITE, TYPE_PWM,  INDEX_PA8,    "Wheel Speed"          },
+  { "LED", WRITE, TYPE_GPIO, INDEX_PB5,    "User Controlled LED"  },
+  { "LED", READ,  TYPE_MISC, INDEX_STATUS, "STM32 Status"         },
 };
 
 const size_t MESSAGE_TABLE_SIZE = sizeof(message_table) / sizeof(MessageMapping);
