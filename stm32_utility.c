@@ -116,6 +116,7 @@ const MessageMapping message_table[] = {
   { "TDC", READ,  TYPE_PWM,  INDEX_PA0,    "Tandem Cutoff"        },
   { "WSD", WRITE, TYPE_PWM,  INDEX_PA8,    "Wheel Speed"          },
   { "LED", WRITE, TYPE_GPIO, INDEX_PB5,    "User Controlled LED"  },
+  { "LDR", READ,  TYPE_GPIO, INDEX_PB5,    "Read User LED state"  },
   { "STS", READ,  TYPE_MISC, INDEX_STATUS, "STM32 Status"         },
 };
 
