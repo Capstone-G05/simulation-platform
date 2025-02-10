@@ -115,7 +115,7 @@ const MessageMapping message_table[] = {
   { "TDF", READ,  TYPE_PWM,  INDEX_PA0,   "Tandem Float"         },
   { "TDC", READ,  TYPE_PWM,  INDEX_PA0,   "Tandem Cutoff"        },
   { "WSD", WRITE, TYPE_PWM,  INDEX_PA8,   "Wheel Speed"          },
-  { "HBT", READ,  TYPE_MISC, INDEX_HB,    "Heart Beat"           },
+  { "LED", WRITE, TYPE_GPIO, INDEX_PB5,   "User Controlled LED"  },
 };
 
 const size_t MESSAGE_TABLE_SIZE = sizeof(message_table) / sizeof(MessageMapping);
