@@ -180,7 +180,7 @@ int read_bytes(int fd, unsigned char *buffer, size_t size) {
 }
 
 int build_message(const MessageMapping *message, unsigned char *buffer, uint16_t value) {
-  buffer[0] = (message->type << 1) | message->read_write;
+  buffer[0] = (message->read_write << 7) | (message->type & 0x7F);
   buffer[1] = message->index;
   buffer[2] = (value >> 8) & 0xFF;
   buffer[3] = value & 0xFF;
