@@ -92,18 +92,18 @@ typedef struct {
 } MessageMapping;
 
 const MessageMapping message_table[] = {
-  { "APA", WRITE, TYPE_DAC,  INDEX_VOUT2,  "Auger Pivot Angle"    },
+//  { "APA", WRITE, TYPE_DAC,  INDEX_VOUT2,  "Auger Pivot Angle"    },
   { "APU", READ,  TYPE_PWM,  INDEX_PB0,    "Auger Pivot Up"       },
   { "APD", READ,  TYPE_PWM,  INDEX_PA4,    "Auger Pivot Down"     },
-  { "AFA", WRITE, TYPE_DAC,  INDEX_VOUT5,  "Auger Fold Angle"     },
+//  { "AFA", WRITE, TYPE_DAC,  INDEX_VOUT5,  "Auger Fold Angle"     },
   { "AFU", READ,  TYPE_PWM,  INDEX_PB10,   "Auger Unfold"         },
   { "AFF", READ,  TYPE_PWM,  INDEX_PB2,    "Auger Fold"           },
   { "STU", READ,  TYPE_PWM,  INDEX_PA1,    "Spout Tilt Up"        },
   { "STD", READ,  TYPE_PWM,  INDEX_PA3,    "Spout Tilt Down"      },
-  { "SRA", WRITE, TYPE_DAC,  INDEX_VOUT0,  "Spout Rotation Angle" },
+//  { "SRA", WRITE, TYPE_DAC,  INDEX_VOUT0,  "Spout Rotation Angle" },
   { "SRC", READ,  TYPE_PWM,  INDEX_PA6,    "Spout Rotate CW"      },
   { "SRW", READ,  TYPE_PWM,  INDEX_PA7,    "Spout Rotate CCW"     },
-  { "GTA", WRITE, TYPE_DAC,  INDEX_VOUT4,  "Gate Angle"           },
+//  { "GTA", WRITE, TYPE_DAC,  INDEX_VOUT4,  "Gate Angle"           },
   { "GTO", READ,  TYPE_PWM,  INDEX_PA5,    "Gate Open"            },
   { "GTC", READ,  TYPE_PWM,  INDEX_PB1,    "Gate Close"           },
   { "PTO", WRITE, TYPE_PWM,  INDEX_PB15,   "PTO Speed"            },
