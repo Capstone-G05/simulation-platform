@@ -78,7 +78,7 @@ int read_bytes(int fd, unsigned char *buffer, size_t size) {
 }
 
 void print_table_header() {
-  printf("\033[H\033[J"); // Clear screen
+  printf("\033[H"); // Move cursor to home position
   printf("%-25s %-10s %-10s\n", "Description", "Value", "Units");
   printf("------------------------------------------------------\n");
 }
@@ -110,6 +110,7 @@ void update_table() {
     uint16_t value = (rx_buffer[2] << 8) | rx_buffer[3];
     printf("%-25s %-10d %-10s\n", message_table[i].description, value, message_table[i].units);
   }
+  fflush(stdout); // Ensure output is updated immediately
 }
 
 void handle_sigint(int sig) {
