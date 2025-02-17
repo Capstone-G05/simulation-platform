@@ -25,10 +25,10 @@ typedef enum {
 
 typedef enum {
   TYPE_GPIO = 0x00,
-  TYPE_DAC = 0x01,
+  TYPE_FREQ = 0x01,
   TYPE_PWM = 0x02,
   TYPE_CAN = 0x03,
-  TYPE_MISC = 0x04
+  TYPE_MISC = 0x04,
 } PeripheralType;
 
 typedef enum {
