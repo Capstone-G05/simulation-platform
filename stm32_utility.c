@@ -40,7 +40,7 @@ typedef enum {
 typedef enum {
   INDEX_PA8 = 0x00,    // PCB 32
   INDEX_PB15 = 0x01,   // PCB 31
-} FREQIndex
+} FREQIndex;
 
 typedef enum {
   INDEX_PA0 = 0x00,    // PCB 1
