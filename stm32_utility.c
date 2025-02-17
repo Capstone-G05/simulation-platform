@@ -165,7 +165,8 @@ int read_bytes(int fd, unsigned char *buffer, size_t size) {
   for (size_t i = 0; i < size; i++) {
     printf(" %02X", buffer[i]);
   }
-  printf(" from address: 0x%02X\n", STM32_ADDRESS);
+  uint16_t value = (buffer[2] << 8) | buffer[3];
+  printf(" (%d) from address: 0x%02X\n", value, STM32_ADDRESS);
   return 0;
 }
 
