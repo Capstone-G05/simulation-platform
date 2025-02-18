@@ -101,7 +101,6 @@ void update_table() {
 
     if (read_bytes(i2c_fd, rx_buffer, RX_BUFFER_SIZE) < 0) {
       printf("%-25s ERROR          %s\n", message_table[i].description, message_table[i].units);
-      usleep(MESSAGE_INTERVAL_US);
       continue;
     }
 
