@@ -77,7 +77,7 @@ int read_bytes(int fd, unsigned char *buffer, size_t size) {
 }
 
 void print_table_header() {
-  printf("\033[H"); // Move cursor to home position
+  printf("\033[H\033[J"); // Move cursor to home position
   printf("%-25s %-10s %-10s\n", "Description", "Value", "Units");
   printf("------------------------------------------------------\n");
 }
