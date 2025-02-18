@@ -13,7 +13,6 @@
 #define STM32_ADDRESS 0x10
 #define TX_BUFFER_SIZE 4
 #define RX_BUFFER_SIZE 4
-#define MESSAGE_DELAY_US 25000
 #define REFRESH_RATE_US 1000000
 
 typedef struct {
@@ -100,15 +99,16 @@ void update_table() {
       continue;
     }
 
-    usleep(MESSAGE_DELAY_US);
-
     if (read_bytes(i2c_fd, rx_buffer, RX_BUFFER_SIZE) < 0) {
       printf("%-25s ERROR          %s\n", message_table[i].description, message_table[i].units);
+      usleep(MESSAGE_INTERVAL_US);
       continue;
     }
 
     uint16_t value = (rx_buffer[2] << 8) | rx_buffer[3];
     printf("%-25s %-10d %-10s\n", message_table[i].description, value, message_table[i].units);
+
+    usleep(REFRESH_RATE_US/MESSAGE_TABLE_SIZE);
   }
   fflush(stdout); // Ensure output is updated immediately
 }
@@ -131,7 +131,6 @@ int main() {
 
   while (1) {
     update_table();
-    usleep(REFRESH_RATE_US);
   }
 
   cleanup_and_exit(EXIT_SUCCESS);
