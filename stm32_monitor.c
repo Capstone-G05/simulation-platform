@@ -128,7 +128,7 @@ int main() {
     cleanup_and_exit(EXIT_FAILURE);
   }
 
-  printf("\033[J");
+  printf("\033[H\033[J");
   while (1) {
     update_table();
   }
