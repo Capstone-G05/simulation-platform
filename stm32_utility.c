@@ -77,11 +77,11 @@ typedef enum {
 } MISCIndex;
 
 typedef struct {
-  char command[MAX_COMMAND_LENGTH];
-  uint8_t read_write : 1;
-  uint8_t type;
-  uint8_t index;
-  char description[MAX_STRING_LENGTH];
+  char command[MAX_COMMAND_LENGTH],
+  uint8_t read_write : 1,
+  uint8_t type,
+  uint8_t index,
+  char description[MAX_STRING_LENGTH],
 } MessageMapping;
 
 const MessageMapping message_table[] = {
