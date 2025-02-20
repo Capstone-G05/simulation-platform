@@ -6,4 +6,6 @@ WORKDIR /app
 
 COPY Backend-Simulation .
 
+RUN chmod +x ./run-simulation
+
 ENTRYPOINT ["./run-simulation.sh"]
