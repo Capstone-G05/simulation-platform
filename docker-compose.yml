@@ -16,6 +16,9 @@ services:
     environment:
       REDIS_HOST: "redis"
       REDIS_PORT: 6379
+    devices:
+      - "/dev/i2c-1:/dev/i2c-1"
+    privileged: true
     restart: always
 
   server:
