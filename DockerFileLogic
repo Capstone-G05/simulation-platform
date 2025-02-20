@@ -6,8 +6,4 @@ WORKDIR /app
 
 COPY Backend-Simulation .
 
-RUN ldconfig
-RUN make
-
-#ENTRYPOINT ["./simulation"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["./run-simulation.sh"]
