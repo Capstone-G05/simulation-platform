@@ -6,6 +6,7 @@ WORKDIR /app
 
 COPY Backend-Simulation .
 
+RUN ldconfig
 RUN make
 
 #ENTRYPOINT ["./simulation"]
