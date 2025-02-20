@@ -49,9 +49,6 @@ services:
       - server
     ports:
       - "7000:80"
-    environment:
-      API_HOST: "10.42.0.1"
-      API_PORT: 8000
     volumes:
       - "./input-board/build:/usr/share/nginx/html"
     restart: always
@@ -65,9 +62,6 @@ services:
       - server
     ports:
       - "5000:80"
-    environment:
-      API_HOST: "10.42.0.1"
-      API_PORT: 8000
     volumes:
       - "./FrontEndSimulation/dist:/usr/share/nginx/html"
     restart: always
