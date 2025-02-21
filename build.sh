@@ -2,6 +2,9 @@
 
 set -e # exit on errors
 
+git pull
+git submodule foreach git pull
+
 # Parse command line arguments for HOST and PORT
 while getopts "h:p:" opt; do
   case $opt in
@@ -44,3 +47,6 @@ for dir in "${directories[@]}"; do
     exit 1
   fi
 done
+
+docker compose down
+docker compose up --build
