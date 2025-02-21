@@ -50,4 +50,4 @@ for dir in "${directories[@]}"; do
 done
 
 docker compose down
-docker compose up --build
+docker compose up --build -d
